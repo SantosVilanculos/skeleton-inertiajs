@@ -10,6 +10,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 use Opcodes\LogViewer\Facades\LogViewer;
@@ -38,8 +39,11 @@ class AppServiceProvider extends ServiceProvider
         LogViewer::auth(fn (): bool => (bool) App::environment(['local', 'testing']));
 
         Model::shouldBeStrict((bool) App::environment(['local', 'testing']));
+
         Model::unguard();
 
         Password::defaults(fn () => when(App::isProduction(), Password::min(8)->max(24)->uncompromised()));
+
+        Vite::prefetch(3);
     }
 }
