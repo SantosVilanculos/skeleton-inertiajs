@@ -6,6 +6,7 @@
         "dev": "vite"
     },
     "dependencies": {
+        "@faker-js/faker": "^9.8.0",
         "@headlessui/react": "^2.2.4",
         "@inertiajs/react": "^2.0.14",
         "axios": "^1.10.0",
