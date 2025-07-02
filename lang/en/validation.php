@@ -194,6 +194,8 @@ return [
 
     'attributes' => [
         'email' => 'email address',
+        'name' => 'name',
+        'password' => 'password',
         'phone' => 'phone number',
         'user_id' => 'user',
     ],
