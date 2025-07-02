@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "inertiajs/inertia-laravel": "^2.0",
         "intervention/image": "^3.11",
         "laravel/framework": "^12.16",
         "laravel/scout": "^10.15",
@@ -70,6 +71,7 @@
         ],
         "lint": [
             "npx prettier --check \"./resources/**/*.{blade.php,css,js}\"",
+            "npx eslint --fix-dry-run \"./resources/\"",
             "vendor/bin/phpstan analyse",
             "vendor/bin/rector --dry-run",
             "vendor/bin/pint --test"
