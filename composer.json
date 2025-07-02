@@ -1,10 +1,12 @@
 {
     "name": "santosvilanculos/skeleton-inertiajs",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "The skeleton application for the Laravel framework and Inertia.",
     "keywords": [
         "laravel",
-        "framework"
+        "framework",
+        "inertia",
+        "react"
     ],
     "license": "MIT",
     "require": {
