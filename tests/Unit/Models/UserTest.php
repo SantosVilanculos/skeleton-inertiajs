@@ -1,9 +1,8 @@
 <?php
 
 declare(strict_types=1);
-use \Carbon\CarbonImmutable;
-
 use App\Models\User;
+use Carbon\CarbonImmutable;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Support\Facades\Hash;
 
@@ -51,7 +50,7 @@ test('get casts', function (): void {
     expect($user->id)->toBeInt();
 
     // email_verified_at
-    expect($user->email_verified_at)->toBeInstanceOf(Carbon\CarbonImmutable::class);
+    expect($user->email_verified_at)->toBeInstanceOf(CarbonImmutable::class);
 
     // password
     expect(Hash::isHashed($user->password))->toBeTrue();
