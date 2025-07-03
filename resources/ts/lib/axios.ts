@@ -1,5 +1,5 @@
 import { environment } from '@/environment';
-import Axios from 'axios';
+import Axios, { type AxiosError } from 'axios';
 
 const { VITE_APP_URL, VITE_APP_DEBUG } = environment;
 
@@ -20,7 +20,7 @@ axios.interceptors.request.use(
 
 axios.interceptors.response.use(
     response => response,
-    error => {
+    (error: AxiosError) => {
         if (error.response) {
             if (VITE_APP_DEBUG) console.error('AxiosError', error.response.data);
             if (VITE_APP_DEBUG) console.error('AxiosError', error.response.status);
