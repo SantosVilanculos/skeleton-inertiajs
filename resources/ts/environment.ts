@@ -1,6 +1,6 @@
 import { z } from '@/lib/zod';
 
-export const env = z
+export const environment = z
     .object({
         VITE_APP_NAME: z.string(),
         VITE_APP_ENV: z.enum(['local', 'testing', 'production']),

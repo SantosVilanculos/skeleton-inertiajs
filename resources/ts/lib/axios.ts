@@ -1,12 +1,13 @@
-import { env } from '@/env';
+import { environment } from '@/environment';
 import Axios from 'axios';
 
-const { VITE_APP_URL, VITE_APP_DEBUG } = env;
+const { VITE_APP_URL, VITE_APP_DEBUG } = environment;
 
 const axios = Axios.create({
     baseURL: VITE_APP_URL,
     headers: {
-        Accept: 'application/json'
+        Accept: 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
     },
     withCredentials: true,
     withXSRFToken: true
