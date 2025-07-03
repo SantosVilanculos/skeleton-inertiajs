@@ -1,6 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import laravel from 'laravel-vite-plugin';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import { run } from 'vite-plugin-run';
 
@@ -27,7 +28,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': '/resources/ts'
+            '@': fileURLToPath(new URL('./resources/ts', import.meta.url))
         }
     },
     esbuild: {
