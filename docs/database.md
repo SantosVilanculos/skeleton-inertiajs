@@ -1,84 +1,88 @@
-1. users
+# Database
 
-    | COLUMN             |     |
-    | ------------------ | --- |
-    | id                 |     |
-    | name               |     |
-    | email              |     |
-    | ?email_verified_at |     |
-    | password           |     |
-    | ?remember_token    |     |
-    | created_at         |     |
-    | updated_at         |     |
+## 1. users
 
-1. password_reset_tokens
+| Key | Column            | Type            | Constraints    |
+| --- | ----------------- | --------------- | -------------- |
+| PK  | id                | BIGINT UNSIGNED | AUTO INCREMENT |
+|     | name              | VARCHAR         |                |
+|     | email             | VARCHAR         | UNIQUE         |
+|     | email_verified_at | TIMESTAMP       | NULLABLE       |
+|     | password          | VARCHAR         |                |
+|     | remember_token    | VARCHAR(100)    | NULLABLE       |
+|     | created_at        | TIMESTAMP       | NULLABLE       |
+|     | updated_at        | TIMESTAMP       | NULLABLE       |
 
-    | COLUMN      |     |
-    | ----------- | --- |
-    | email       |     |
-    | token       |     |
-    | ?created_at |     |
+## 2. password_reset_tokens
 
-1. sessions
+| Key | Column     | Type      | Constraints |
+| --- | ---------- | --------- | ----------- |
+| PK  | email      | VARCHAR   |             |
+|     | token      | VARCHAR   |             |
+|     | created_at | TIMESTAMP | NULLABLE    |
 
-    | COLUMN        |     |
-    | ------------- | --- |
-    | id            |     |
-    | ?user_id      |     |
-    | ?ip_address   |     |
-    | ?user_agent   |     |
-    | payload       |     |
-    | last_activity |     |
+## 3. sessions
 
-1. cache
+| Key | Column        | Type            | Constraints |
+| --- | ------------- | --------------- | ----------- |
+| PK  | id            | VARCHAR         |             |
+| FK  | user_id       | BIGINT UNSIGNED | NULLABLE    |
+|     | ip_address    | VARCHAR(45)     | NULLABLE    |
+|     | user_agent    | TEXT            | NULLABLE    |
+|     | payload       | LONGTEXT        |             |
+|     | last_activity | INTEGER         | INDEX       |
 
-    | COLUMN     |     |
-    | ---------- | --- |
-    | key        |     |
-    | value      |     |
-    | expiration |     |
+## 4. cache
 
-1. cache_locks
+| Key | Column     | Type       | Constraints |
+| --- | ---------- | ---------- | ----------- |
+| PK  | key        | VARCHAR    |             |
+|     | value      | MEDIUMTEXT |             |
+|     | expiration | INTEGER    |             |
 
-    | COLUMN     |     |
-    | ---------- | --- |
-    | key        |     |
-    | owner      |     |
-    | expiration |     |
+## 5. cache_locks
 
-1. jobs
+| Key | Column     | Type    | Constraints |
+| --- | ---------- | ------- | ----------- |
+| PK  | key        | VARCHAR |             |
+|     | owner      | VARCHAR |             |
+|     | expiration | INTEGER |             |
 
-    | COLUMN       |     |
-    | ------------ | --- |
-    | queue        |     |
-    | payload      |     |
-    | attempts     |     |
-    | reserved_at  |     |
-    | available_at |     |
-    | created_at   |     |
+## 6. jobs
 
-1. job_batches
+| Key | Column       | Type             | Constraints    |
+| --- | ------------ | ---------------- | -------------- |
+| PK  | id           | BIGINT UNSIGNED  | AUTO INCREMENT |
+|     | queue        | VARCHAR          | INDEX          |
+|     | payload      | LONGTEXT         |                |
+|     | attempts     | TINYINT UNSIGNED |                |
+|     | reserved_at  | INTEGER UNSIGNED | NULLABLE       |
+|     | available_at | INTEGER UNSIGNED |                |
+|     | created_at   | INTEGER UNSIGNED |                |
 
-    | COLUMN          |     |
-    | --------------- | --- |
-    | id              |     |
-    | name            |     |
-    | total_jobs      |     |
-    | pending_jobs    |     |
-    | failed_jobs     |     |
-    | failed_jobs_ids |     |
-    | ?options        |     |
-    | ?cancelled_at   |     |
-    | created_at      |     |
-    | finished_at     |     |
+## 7. job_batches
 
-1. failed_jobs
+| Key | Column         | Type       | Constraints |
+| --- | -------------- | ---------- | ----------- |
+| PK  | id             | VARCHAR    |             |
+|     | name           | VARCHAR    |             |
+|     | total_jobs     | INTEGER    |             |
+|     | pending_jobs   | INTEGER    |             |
+|     | failed_jobs    | INTEGER    |             |
+|     | failed_job_ids | LONGTEXT   |             |
+|     | options        | MEDIUMTEXT | NULLABLE    |
+|     | cancelled_at   | INTEGER    | NULLABLE    |
+|     | created_at     | INTEGER    |             |
+|     | finished_at    | INTEGER    | NULLABLE    |
 
-    | COLUMN     |     |
-    | ---------- | --- |
-    | uuid       |     |
-    | connection |     |
-    | queue      |     |
-    | payload    |     |
-    | expiration |     |
-    | failed_at  |     |
+## 8. failed_jobs
+
+| Key | Column     | Type            | Constraints               |
+| --- | ---------- | --------------- | ------------------------- |
+| PK  | id         | BIGINT UNSIGNED | AUTO INCREMENT            |
+|     | uuid       | VARCHAR         | UNIQUE                    |
+|     | connection | TEXT            |                           |
+|     | queue      | TEXT            |                           |
+|     | payload    | LONGTEXT        |                           |
+|     | exception  | LONGTEXT        |                           |
+|     | failed_at  | TIMESTAMP       | DEFAULT CURRENT_TIMESTAMP |
