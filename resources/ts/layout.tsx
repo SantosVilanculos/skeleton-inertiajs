@@ -258,15 +258,30 @@ export default ({ children, heading }: { children: ReactNode; heading: string })
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">{children}</div>
             </main>
 
-            {VITE_APP_ENV === 'local' ? (
-                <footer>
-                    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                        <Link className="underline" href={'/playground'} prefetch>
-                            Playground
-                        </Link>
-                    </div>
-                </footer>
-            ) : null}
+            <footer>
+                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                    <ul className="*:inline-block *:not-last:mr-2 *:not-first:before:mr-2 *:not-first:before:content-['_·_']">
+                        <li>
+                            <Link className="underline" href="/playground" prefetch>
+                                Playground
+                            </Link>
+                        </li>
+
+                        {VITE_APP_ENV === 'local' ? (
+                            <li>
+                                <a
+                                    className="underline"
+                                    href="https://github.com/SantosVilanculos/skeleton-inertiajs"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    Source code
+                                </a>
+                            </li>
+                        ) : null}
+                    </ul>
+                </div>
+            </footer>
         </div>
     );
 };
