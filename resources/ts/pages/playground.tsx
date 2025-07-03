@@ -1,3 +1,9 @@
+import Layout from '@/layout';
+
 export default () => {
-    return <h1>Hello, World!</h1>;
+    return (
+        <Layout heading="Playground">
+            <h1>Hello, World!</h1>
+        </Layout>
+    );
 };
