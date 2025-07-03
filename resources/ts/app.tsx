@@ -1,9 +1,16 @@
+import { scan } from 'react-scan'; // must be imported before React and React DOM
+
 import { environment } from '@/environment';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
 
-const { VITE_APP_NAME } = environment;
+const { VITE_APP_NAME, VITE_APP_DEBUG } = environment;
+
+scan({
+    enabled: VITE_APP_DEBUG,
+    animationSpeed: 'off'
+});
 
 createInertiaApp({
     title: title => title || VITE_APP_NAME,

@@ -19,7 +19,7 @@ laravel new --using=santosvilanculos/skeleton-inertiajs
 - **Styling**: TailwindCSS for a utility-first CSS framework.
 - **HTTP Requests**: Axios for promise-based HTTP client.
 - **Validation**: Zod for TypeScript-first schema validation.
-- **Development**: IDE Helper, Debugbar, and Laradumps for an enhanced DX.
+- **Development**: IDE Helper, Debugbar, Laradumps and React Scan for an enhanced DX.
 - **Code Quality**: Prettier, Rector, PHPStan, and ESLint for consistent, high-quality code.
 - **Testing**: Faker.js for generating realistic test data.
 - **Logging**: Web-based log viewer for easy log management.
