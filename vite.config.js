@@ -8,7 +8,7 @@ import { run } from 'vite-plugin-run';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['./resources/css/app.css', './resources/ts/app.tsx'],
+            input: ['./resources/css/app.css', './resources/js/app.tsx'],
             refresh: true
         }),
         react(),
@@ -16,7 +16,7 @@ export default defineConfig({
         run({
             input: [
                 {
-                    run: ['php', 'artisan', 'ziggy:generate', '--types-only', './resources/ts/ziggy.d.ts'],
+                    run: ['php', 'artisan', 'ziggy:generate', '--types-only'],
                     pattern: ['./config/ziggy.php', './routes/**/*.php']
                 },
                 {
@@ -32,7 +32,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': resolve(import.meta.dirname, './resources/ts'),
+            '@': resolve(import.meta.dirname, './resources/js'),
             'ziggy-js': resolve(import.meta.dirname, './vendor/tightenco/ziggy')
         }
     },
@@ -40,5 +40,3 @@ export default defineConfig({
         jsx: 'automatic'
     }
 });
-
-console.log(resolve(import.meta.dirname, './vendor/tightenco/ziggy'));
