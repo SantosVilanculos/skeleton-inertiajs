@@ -26,6 +26,8 @@
         <meta name="twitter:site" content="" />
         <meta name="twitter:creator" content="" />
 
+        @routes
+
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @viteReactRefresh
 

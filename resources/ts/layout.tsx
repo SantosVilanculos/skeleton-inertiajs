@@ -10,21 +10,23 @@ import {
 } from '@headlessui/react';
 import { Link, usePage } from '@inertiajs/react';
 import { useMemo, type ReactNode } from 'react';
+import { useRoute } from 'ziggy-js';
 
 const { VITE_APP_ENV } = environment;
 
 export default ({ children, heading }: { children: ReactNode; heading: string }) => {
+    const route = useRoute();
     const { url } = usePage();
 
     const links = useMemo(
         () => [
-            { href: '/', children: 'Dashboard' },
+            { href: route('dashboard'), children: 'Dashboard' },
             { href: '#', children: 'Team' },
             { href: '#', children: 'Projects' },
             { href: '#', children: 'Calendar' },
             { href: '#', children: 'Reports' }
         ],
-        []
+        [route]
     );
 
     return (
@@ -262,7 +264,7 @@ export default ({ children, heading }: { children: ReactNode; heading: string })
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                     <ul className="*:inline-block *:not-last:mr-2 *:not-first:before:mr-2 *:not-first:before:content-['_·_']">
                         <li>
-                            <Link className="underline" href="/playground" prefetch>
+                            <Link className="underline" href={route('playground')} prefetch>
                                 Playground
                             </Link>
                         </li>

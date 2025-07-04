@@ -17,7 +17,8 @@
         "laravel/scout": "^10.15",
         "laravel/tinker": "^2.10",
         "opcodesio/log-viewer": "^3.17",
-        "propaganistas/laravel-phone": "^6.0"
+        "propaganistas/laravel-phone": "^6.0",
+        "tightenco/ziggy": "^2.5"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",
