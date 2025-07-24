@@ -1,6 +1,7 @@
 .fleet/
 .idea/
 .zed/
+bootstrap/ssr/
 node_modules/
 public/build/
 public/vendor/log-viewer/
@@ -9,7 +10,6 @@ public/storage
 storage/pail/
 storage/*.key
 vendor/
-
 _ide_helper.php
 _ide_helper_models.php
 .env
